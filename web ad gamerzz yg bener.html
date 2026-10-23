@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AD GAMERZZ - Script Emote & Backsound</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f3f4f6;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(59, 130, 246, 0.15);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-blue-500 selection:text-white">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0b0f19]/80 border-b border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl overflow-hidden bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center shadow-lg shadow-blue-500/30">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=100&auto=format&fit=crop&q=60" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg leading-tight tracking-tight text-white">AD GAMERZZ</h1>
+                    <p class="text-xs text-gray-400">Official Script & Backsound</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <button onclick="toggleAdminPanel()" class="text-xs bg-blue-600/20 hover:bg-blue-600/30 text-blue-400 border border-blue-500/30 px-3 py-2 rounded-lg font-medium transition flex items-center gap-1.5">
+                    <span>⚙️</span> Admin Panel
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl w-full mx-auto px-4 py-8 flex-grow">
+        
+        <!-- Hero Banner Card -->
+        <div class="bg-gradient-to-r from-blue-900/40 via-indigo-900/30 to-purple-900/30 border border-blue-500/20 rounded-2xl p-6 sm:p-8 mb-8 glow-effect relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative z-10 max-w-xl">
+                <span class="inline-block bg-blue-500/20 text-blue-400 text-xs font-semibold px-3 py-1 rounded-full mb-3 border border-blue-500/20">
+                    🔥 Update Terbaru
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white tracking-tight mb-2">
+                    Kumpulan Script Emote & Backsound ML Aman & Gratis
+                </h2>
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
+                    Download script emote & Backsound Mobile Legend dengan mudah dan cepat!
+                </p>
+            </div>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="mb-6">
+            <div class="relative">
+                <input type="text" id="searchInput" oninput="filterScripts()" placeholder="Cari nama script atau game..." class="w-full bg-gray-900/80 border border-gray-800 rounded-xl px-4 py-3.5 pl-11 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition">
+                <span class="absolute left-4 top-4 text-gray-500">🔍</span>
+            </div>
+        </div>
+
+        <!-- Scripts Section -->
+        <div id="scripts-section" class="mb-12">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-lg text-white">Daftar Script Tersedia</h3>
+                <span id="scriptCount" class="text-xs text-gray-400">Menampilkan file</span>
+            </div>
+
+            <!-- Scripts Grid Container -->
+            <div id="scriptGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Dynamic Script Cards -->
+            </div>
+        </div>
+
+        <!-- Request Script Form Section -->
+        <section id="request-section" class="bg-gray-900/60 border border-gray-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+            <div class="max-w-xl mx-auto text-center mb-6">
+                <span class="bg-purple-500/10 text-purple-400 text-xs font-semibold px-3 py-1 rounded-full border border-purple-500/20 inline-block mb-2">
+                    💡 Punya Request?
+                </span>
+                <h3 class="text-xl font-bold text-white tracking-tight">Request Script ML disini</h3>
+                <p class="text-xs text-gray-400 mt-1">Isi formulir di bawah ini untuk mengirimkan permintaan script kepada admin 
+				| mungkin pembuatannya akan di upload di Youtube AD GAMERZZ.</p>
+            </div>
+
+            <!-- FORM -->
+            <form action="https://formspree.io/f/maeeywvv" method="POST" class="max-w-xl mx-auto space-y-4">
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Nama Kamu / Pembuat Request</label>
+                    <input type="text" name="nama_pembuat" required placeholder="Contoh: Rizky Gamer" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition">
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Replace apa?</label>
+                        <input type="text" name="game" required placeholder="Contoh: Mobile Legends / PUBG" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-300 mb-1">Nama Script / Emote yang Diinginkan</label>
+                        <input type="text" name="judul_script" required placeholder="Contoh: Script Emote M5 / Skin Collector" class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-300 mb-1">Keterangan Tambahan / Detail Script</label>
+                    <textarea name="keterangan" rows="3" required placeholder="Jelaskan secara singkat script seperti apa yang kamu inginkan..." class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold py-3 rounded-xl text-xs transition shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2">
+                    <span>🚀</span> Kirim Request Script
+                </button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Modal Login Password Admin -->
+    <div id="passwordModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-sm w-full p-6 shadow-2xl relative">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-base text-white">🔒 Keamanan Admin</h3>
+                <button onclick="closePasswordModal()" class="text-gray-400 hover:text-white">✕</button>
+            </div>
+            <p class="text-xs text-gray-400 mb-4">Masukkan password rahasia untuk mengakses Admin Panel.</p>
+            
+            <form onsubmit="verifyAdminPassword(event)" class="space-y-4">
+                <div>
+                    <input type="password" id="adminPasswordInput" required placeholder="Masukkan Password..." class="w-full bg-gray-950 border border-gray-800 rounded-xl px-4 py-3 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-blue-500 transition">
+                </div>
+                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-xs transition shadow-lg shadow-blue-600/20">
+                    Masuk Admin Panel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Panel / Edit Modal -->
+    <div id="adminModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-gray-900 border border-gray-800 rounded-2xl max-w-2xl w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="font-bold text-lg text-white">⚙️ Admin Panel - Kelola Script</h3>
+                <button onclick="toggleAdminPanel()" class="text-gray-400 hover:text-white p-1 rounded-lg">✕</button>
+            </div>
+            <p class="text-xs text-gray-400 mb-6">Kelola tombol download script aktif Anda di sini.</p>
+            
+            <!-- Tab 1: Manage Scripts -->
+            <div id="adminScriptsTab" class="space-y-4">
+                <div id="adminList" class="space-y-4 mb-4">
+                    <!-- Form items generated by JS -->
+                </div>
+                <button onclick="addNewScript()" class="w-full bg-gray-800 hover:bg-gray-700 text-blue-400 font-semibold py-2.5 rounded-xl text-xs transition border border-gray-700">
+                    ➕ Tambah Tombol / Script Baru
+                </button>
+            </div>
+
+            <div class="flex gap-2 pt-6 mt-6 border-t border-gray-800">
+                <button onclick="toggleAdminPanel()" class="flex-1 bg-gray-800 hover:bg-gray-700 text-gray-300 font-semibold py-2.5 rounded-xl text-xs transition">
+                    Tutup
+                </button>
+                <button onclick="saveChanges()" class="flex-1 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2.5 rounded-xl text-xs transition shadow-lg shadow-blue-600/20">
+                    💾 Simpan Perubahan
+                </button>
